@@ -1,0 +1,1077 @@
+﻿C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 16] : /* ---------------- 工具 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 38] : if (d < 60000) return '刚刚';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 39] : if (d < 3600000) return `${Math.floor(d / 60000)} 分钟前`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 40] : if (d < 86400000) return `${Math.floor(d / 3600000)} 小时前`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 41] : if (d < 86400000 * 30) return `${Math.floor(d / 86400000)} 天前`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 46] : * 迷你 toast
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 48] : * 同一类消息做去重 + 数量上限：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 49] : * 安装失败时里面有「运行时启动日志」在持续推送，以前每条都新建一个 toast，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 50] : * 于是屏幕上会不停叠加同一条错误，看起来像「失败信息一直循环」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 55] : // ① 去重：同样的标题 + 正文（4 秒内）只刷新那一条，不叠加
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 69] : // ② 上限：同时最多 4 条，超出先挤掉最旧的
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 114] : /* ---------------- 渲染 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 137] : ? '首次使用：打开右上角设置 → 运行时 → 一键完成，再回来安装应用即可。'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 138] : : '提示：所有应用共享同一个 Android 运行时，所以第二个应用的启动几乎是瞬时的。';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 143] : // 末尾放一块「添加应用」虚线卡片。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 144] : // 目的不只是好看：应用少的时候下面是一大片空白，用户不知道该干什么；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 145] : // 这块卡片把「还能拖 APK 进来」这件事直接摆在眼前，也顺手填掉了空白。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 149] : ${a.running ? '<span class="badge-run" title="正在运行"></span>' : ''}
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 156] : <div class="meta">${a.running ? '运行中' : `v${esc(a.versionName)}${a.lastLaunchAt ? ' · ' + relTime(a.lastLaunchAt) : ''}`}</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 157] : <div class="open-hint">${a.running ? '切换到前台' : '打开'}</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 160] : <div class="card card-add" id="cardAdd" role="button" tabindex="0" title="拖入 APK 文件，或点击选择">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 165] : <div class="name">添加应用</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 166] : <div class="meta">拖入 APK 即可安装</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 171] : /* ---------------- 数据刷新 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 185] : $('statusStats').textContent = n ? `${n} 个应用` : '暂无应用';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 198] : text.textContent = '运行时未部署 —— 打开设置 → 运行时，一键完成';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 199] : tag.textContent = '需要部署';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 203] : text.textContent = `运行时已就绪 · Android ${s.android || '?'}${s.freeform ? ' · 独立窗口已启用' : ''}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 208] : text.textContent = '正在引导 Android…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 209] : tag.textContent = '引导中';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 213] : text.textContent = '未检测到硬件加速：已自动回退软件模拟（首次开机较慢）';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 214] : tag.textContent = '软件模拟';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 218] : text.textContent = '缺少 Android 14 通用系统镜像 —— 设置 → 运行时里下载（约 1.5GB，只下一次）';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 219] : tag.textContent = '待下载镜像';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 223] : text.textContent = '运行时引擎未安装 —— 打开设置 → 运行时一键完成';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 224] : tag.textContent = '需要部署';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 228] : text.textContent = '运行时已就绪 —— 安装 APK 或双击桌面图标会自动开机';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 229] : tag.textContent = '待开机';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 233] : text.textContent = '安装程序运行中 —— 请在虚拟机窗口里完成安装';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 234] : tag.textContent = '安装中';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 239] : ? '运行时待机（安装或打开应用时会自动拉起）'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 240] : : '运行时尚未安装 Android 系统 —— 打开设置 → 运行时继续';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 241] : tag.textContent = s.installed ? '待机' : '待安装';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 245] : // 网络状态：这是用户最容易踩的坑（应用里一直「网络错误」，但看不出是虚拟机没网）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 246] : // 直接摆在状态栏，出问题时一眼能看到，不用去翻日志。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 254] : netEl.textContent = s.network.ok ? `网络正常 ${s.network.ip || ''}`.trim() : '虚拟机未联网';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 257] : ? '安卓虚拟机已联网，联网类应用可以正常加载'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 258] : : '安卓虚拟机没有网络，联网页面会一直是空白/报错。可在「设置 → 修复网络」处理';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 264] : $('statusText').textContent = `状态检查失败：${e.message}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 268] : /* ---------------- 运行时部署（固定在设置里） ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 271] : * 运行时/部署/自检面板现在都收在「设置」里，主界面只留已安装应用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 272] : * 保留 showSetup 给托盘菜单与 ui:navigate 复用，语义改为「打开设置并定位到运行时」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 306] : // 启动即见已安装应用：不再用部署向导整屏接管主界面，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 307] : // 状态只在设置里的运行时面板 + 底部状态条上体现。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 317] : if (!emuDone0) missing.push('引擎');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 318] : if (!imgDone0) missing.push('系统镜像');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 320] : ? `已就绪 · Android ${s.android || ''}`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 322] : ? '正在引导 Android…'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 324] : ? '组件齐全 · 待开机（打开应用时自动拉起）'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 325] : : `缺少 ${missing.join('、')}${accelOk ? '' : '（无硬件加速，将回退软件模拟）'}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 334] : // 只保留一个步骤：下载、参数自适应、开机全部由「一键完成」串起来，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 335] : // 且首次启动会在后台自动跑，用户不需要逐步点击。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 338] : if (!(env.adb && env.adb.ok)) left.push('adb 工具链');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 339] : if (!emuDone) left.push('Android 运行时');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 340] : if (!imgDone) left.push('系统镜像');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 344] : title: allDone ? '一切就绪' : '一键完成',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 345] : tag: allDone ? '已自动完成' : '自动',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 349] : ? `Android ${s.android || ''} 已就绪 · 应用窗口会按屏幕自动适配`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 351] : ? '正在引导 Android…'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 353] : ? '组件齐全，双击任意 APK 或桌面图标即会自动开机'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 354] : : `还差 ${left.join('、')}；点下面「一键完成」，会在后台一次装好并自动开机`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 356] : ? '<button class="btn ghost sm" data-act="vmStop">停止运行时</button>'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 362] : $('btnDeployAll').textContent = busy ? '准备中…' : (allDone ? '已完成 · 点此复查' : '一键完成');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 363] : // 「上次为什么没起来」优先显示落盘的失败记录：进程重启后内存里的 diagnosis 是空的，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 364] : // 只显示 autoProfile 会让用户完全看不出原因（issue #20/#25 的报告就是这样）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 367] : ? `上次启动失败：${lf.diagnosis.title}`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 368] : : (s.diagnosis ? `上次启动自动诊断：${s.diagnosis.title}` : '');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 370] : || s.autoProfile || '全自动：无需选择镜像、无需启用加速、无需调内存';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 379] : // 五步已合并成一行，所有子步骤的进度都落在这唯一的进度条上
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 408] : // 一次调用把 adb / 引擎 / 系统镜像全装完，进度统一显示在唯一那一行
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 411] : toast({ title: '准备失败', body: (r && r.error) || '请检查网络后重试', type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 415] : toast({ title: '组件已就绪，正在自动开机…', body: '首次约 1-3 分钟，之后几秒即可。', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 419] : ? { title: '运行时已就绪', body: '现在把 APK 拖进窗口，或双击桌面图标即可。', type: 'ok' }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 420] : : { title: '开机未完成', body: (started && started.error) || '请导出诊断报告查看原因', type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 422] : toast({ title: '准备失败', body: e.message, type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 431] : if (state.setupBusy) return { ok: false, error: '已有部署任务进行中' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 440] : title: '正在安装硬件加速驱动…',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 441] : body: '请在弹出的是否允许窗口点「是」',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 446] : if (r.ok) t.update({ title: '硬件加速已启用', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 447] : else t.update({ title: '加速未启用', body: r.error, type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 451] : else r = { ok: false, error: '未知步骤' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 463] : toast({ title: '无法启动安装环境', body: r.error, type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 468] : toast({ title: '虚拟机窗口已打开', body: '按下方 6 步完成安装；装好后点「我已安装完成」。', type: 'ok', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 476] : toast({ title: '安装完成，运行时已接管', body: '现在可以直接把 APK 拖进来安装了。', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 481] : /* ---------------- 安装 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 483] : /** 把安装失败翻译成「下一步该做什么」，只对最常见的几种做提示，其它原样显示 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 485] : const s = String(msg || '未知错误');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 486] : if (/INSUFFICIENT_STORAGE|not enough space|空间不足|ENOSPC/i.test(s)) {
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 487] : return `${s}\n安卓数据分区不够用：设置 → 性能与资源占用 → 安卓数据分区调大后点「立即扩容」。`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 489] : if (/NO_MATCHING_ABIS/i.test(s)) return `${s}\n这个包只有 ARM 库，正在自动切换兼容镜像后重试。`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 491] : return `${s}\n同包名但签名不同（常见于从别的渠道装过）。在应用卡片右键「卸载」后再装。`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 493] : if (/INSTALL_FAILED_VERSION_DOWNGRADE/i.test(s)) return `${s}\n已装版本更高，先在右键菜单里卸载再装。`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 495] : return `${s}\n这个安装包过大或内存不足，解析被系统拒绝了。请确认磁盘与内存充足后重试；`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 496] : + '仍失败请把安装包路径换成纯英文短路径（如 D:\\a.apk）。';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 501] : /* 当前那条「正在安装…」的 sticky 提示。install:error 事件要能把它收掉：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 502] : * 主进程是先 send('install:error') 再让 invoke 失败的，两者都可能到得很晚，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 503] : * 只靠 catch 收会出现「报错了右下角还在转圈」。 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 509] : toast({ title: '已有安装任务在进行', body: '请等当前应用装完再继续。' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 518] : const t = toast({ title: `正在安装 ${name}`, body: '解析 APK…', progress: 8, sticky: true, spinner: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 525] : t.update({ title: pr.meta ? `正在安装 ${pr.meta.label}` : `正在安装 ${name}`, body: pr.message, progress: pct });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 528] : t.update({ title: `${r.app.label} 已安装`, body: r.app.shortcutPath ? '桌面快捷方式已创建，双击即可直接打开。' : '可在应用卡片右键创建桌面快捷方式。', progress: 100, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 532] : toast({ title: `${r.app.label} 兼容性提示`, body: r.warnings.join(' '), type: 'error', sticky: false });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 537] : // 先把那条「正在安装…」的 sticky 提示收掉，否则它会一直转圈、还继续被
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 538] : // 运行时日志刷新 —— 用户看到的就是「失败信息一直在循环」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 539] : // 错误提示统一由下面的 install:error 监听器负责（带文件名与中文原因），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 540] : // 这里不再重复弹一条。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 554] : /* ---------------- 应用操作 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 560] : title: `正在打开 ${app ? app.label : pkg}`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 561] : body: '首次启动需要预热运行时，请稍候…',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 567] : // 应用有自己的窗口，主界面自动收起；这里只留一句提示，然后隐藏窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 568] : t.update({ title: '已启动', body: '应用正在独立窗口中运行（顶部可旋转屏幕）。', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 573] : t.update({ title: '启动失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 581] : toast({ title: '桌面快捷方式已创建', body: r.path, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 584] : toast({ title: '创建快捷方式失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 591] : const ok = window.confirm(`确定卸载「${app.label}」？\n\n应用数据会一并被清除，桌面快捷方式也会被删除。`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 595] : toast({ title: '已卸载', body: app.label, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 598] : toast({ title: '卸载失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 602] : /* ---------------- 右键菜单 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 605] : { key: 'open', label: '打开应用', kbd: 'Enter' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 606] : // 只在应用真的在运行时才出现（见 showMenu 里的过滤）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 607] : // 以前完全没有这一项，独立窗口模式下又没有可点的关闭按钮，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 608] : // 应用一起来就关不掉，只能退到托盘退出整个 ApkStart。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 609] : { key: 'stop', label: '关闭应用', onlyRunning: true },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 610] : { key: 'shortcut', label: '创建桌面快捷方式' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 611] : { key: 'pin', label: '固定到顶部' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 613] : { key: 'reveal', label: '打开 APK 所在位置' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 614] : { key: 'clear', label: '清除应用数据' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 616] : { key: 'uninstall', label: '卸载', danger: true },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 626] : const label = it.key === 'pin' ? (app && app.pinned ? '取消固定' : '固定到顶部') : it.label;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 654] : toast({ title: '已关闭', body: app.label, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 656] : toast({ title: '关闭失败', body: (r && r.error) || '未知错误', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 659] : toast({ title: '关闭失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 667] : if (!window.confirm(`清除「${app.label}」的全部数据？此操作不可撤销。`)) return;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 670] : toast({ title: '数据已清除', body: app.label, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 672] : toast({ title: '清除失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 681] : /* ---------------- 设置 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 683] : // ---------------- 安卓系统设置 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 690] : el.textContent = '读取中…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 693] : el.textContent = r && r.error ? `运行时未就绪（${String(r.error).slice(0, 36)}）` : '运行时未启动';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 696] : el.textContent = `Android ${r.sdk || '?'} · ${r.wifi ? 'Wi-Fi 已开' : 'Wi-Fi 已关'}` +
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 697] : `${r.airplane ? ' · 飞行模式' : ''} · 音量 ${r.volume}%`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 715] : title: r && r.ok ? (msg || '已生效') : `失败：${(r && r.error) || '运行时未就绪'}`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 719] : $('setAndroidWifi').addEventListener('change', (e) => set('wifi', e.target.checked, e.target.checked ? 'Wi-Fi 已开启' : 'Wi-Fi 已关闭'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 720] : $('setAndroidAirplane').addEventListener('change', (e) => set('airplane', e.target.checked, e.target.checked ? '已进入飞行模式' : '已退出飞行模式'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 721] : $('setAndroidAnim').addEventListener('change', (e) => set('animations', e.target.checked, e.target.checked ? '系统动画已开启' : '系统动画已关闭，界面更快'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 722] : $('setAndroidFont').addEventListener('change', (e) => set('fontScale', Number(e.target.value), '字体大小已调整'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 723] : $('setAndroidDensity').addEventListener('change', (e) => set('density', Number(e.target.value), '显示大小已调整'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 727] : volumeTimer = setTimeout(() => set('volume', Number(e.target.value), '音量已调整'), 260);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 732] : toast({ type: r && r.ok ? 'ok' : 'error', title: r && r.ok ? '已优化：动画关闭、后台放宽、电池白名单' : '优化失败，运行时可能未启动' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 738] : toast({ type: 'error', title: '需要先打开一次应用，让运行时启动' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 748] : /** 按当前底座的 id 决定哪些字段要露出来（自带 = 镜像/内存那些，第三方 = 它自己的路径） */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 812] : /** 数据分区实际大小 + 磁盘余量，显示在设置页容量选择下方 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 817] : if (!info) { el.textContent = '读取数据分区信息失败'; return; }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 819] : const img = info.imageGB ? `${info.imageGB} GB` : '尚未创建';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 820] : const free = info.freeDiskMB ? `${(info.freeDiskMB / 1024).toFixed(1)} GB` : '未知';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 821] : el.textContent = `当前数据分区镜像：${img}${auto ? '（自动）' : ''} · 所在磁盘剩余 ${free}。`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 822] : + '游戏提示「存储空间不足」就把这里调大后点「立即扩容」——扩容是就地做的，已装应用与存档都保留。';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 840] : btn.textContent = assoc.registered ? '已关联 · 点击取消' : '未关联 · 点击开启';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 845] : }).catch(() => { $('autoProfileText').textContent = '自动模式'; });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 848] : ? `共 ${u.totalText}${u.reclaimable ? ` · 可回收 ${u.reclaimableText}（${u.count} 项）` : ' · 已是精简状态'}`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 849] : : '统计不可用';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 850] : }).catch(() => { $('usageText').textContent = '统计不可用'; });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 861] : /* ---------------- 软件更新 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 865] : /** 把一次检查结果画到设置面板（也用于启动时静默检查推送过来的状态） */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 877] : st.textContent = `检查失败：${info.error || '网络不可用'}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 878] : // 检查失败也要给一条出路：直接把发布页打开，用户至少能手动下载。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 879] : // 以前这里是「什么都不显示」，用户只会觉得「更新功能坏了」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 881] : btn.textContent = '打开下载页';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 888] : // 如实说明这次是哪个源给出的版本、另一个源为什么没参与 ——
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 889] : // 用户排查「为什么检查更新很慢」时，这一行比任何日志都直接。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 892] : const stale = info.stale ? '（离线缓存，可能不是最新）' : '';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 893] : st.textContent = `发现新版本 ${info.tag}${src ? `（${src}）` : ''}${bad ? `；${bad} 不可达` : ''}${stale}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 895] : btn.textContent = info.asset ? '立即更新' : '打开下载页';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 900] : if (brief) note.textContent = `更新内容：\n${brief}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 905] : const stale = info.stale ? '（离线缓存）' : '';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 906] : st.textContent = `已是最新版本（v${info.current}）${src ? ` · 经由 ${src}` : ''}${stale}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 912] : /** .btn 自带 display:inline-flex，会盖掉 hidden 属性，所以这里直接改 display */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 926] : if (st) st.textContent = `更新失败：${p.message || ''}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 928] : toast({ title: '更新失败', body: p.message || '', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 931] : if (st) st.textContent = p.message || '正在更新…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 947] : check.textContent = '检查中…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 948] : $('updateState').textContent = '正在连接 GitHub…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 952] : if (info && info.hasUpdate) toast({ title: `发现新版本 ${info.tag}`, body: '点「立即更新」自动下载安装', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 953] : else if (info && info.ok !== false) toast({ title: '已是最新版本', body: `v${info.current}`, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 955] : $('updateState').textContent = `检查失败：${e.message}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 974] : go.textContent = '更新中…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 978] : go.textContent = '立即更新';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 980] : $('updateState').textContent = `更新失败：${r.error}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 981] : toast({ title: '更新失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 984] : $('updateState').textContent = `已下载 v${r.version}，正在重启完成安装…`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 988] : // 打开设置时如果还没结果，就顺手查一次（放后台，不打扰）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1014] : // 内存 / 核心：填了具体值就关掉「自动」，填 0 又回到自动。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1015] : // 旧代码只写 memoryMB，而 overridesFromSettings 只在 autoMemory=false 时才认它，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1016] : // 于是「手动填了内存」一直被忽略 —— 这是设置页最容易被当成“没用”的一项。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1027] : // 资源策略会连带改 liteMode / priorityMode / renderSize（主进程里翻译）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1030] : toast({ title: '资源策略已切换', body: '下一次打开应用生效', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1051] : if (!gb) { toast({ title: '先选一个容量', body: '「自动」表示由软件按磁盘余量决定，不需要扩容', type: 'info' }); return; }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1053] : title: '立刻把安卓数据分区扩容？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1054] : message: `将把 /data 调整为 ${gb} GB（就地扩容，已装应用和存档都会保留）。`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1055] : detail: '扩容需要先关掉正在运行的安卓应用，完成后下次打开应用会重新引导，约多花十几秒。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1056] : okLabel: '开始扩容',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1061] : $('btnGrowData').textContent = '扩容中…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1067] : title: r && r.ok ? '数据分区已扩容' : '扩容失败',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1068] : body: r && r.ok ? `现在约 ${r.imageGB || gb} GB 可用` : (r && r.error) || '未知错误',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1099] : // 立刻按当前窗口焦点重装/卸载钩子，不用等下次切窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1107] : // 关掉深度裁剪必须把之前 pm disable-user 的包恢复回来，否则影响是持久的
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1110] : toast({ title: '已恢复系统组件', body: '深度裁剪关闭，后台包正在恢复', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1119] : if (on && !ok) toast({ title: 'ARM 兼容模式已开启', body: '还需要下载 Google Play 兼容镜像（Android 14，约 1.5GB），点击下方按钮开始', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1120] : else if (on) toast({ title: 'ARM 兼容模式已开启', body: '重启运行时后生效', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1131] : toast({ title: mode === 'fullscreen' ? '已切全屏' : '已切竖屏窗口', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1137] : toast({ title: on ? '已开启自动全屏' : '已关闭自动全屏', body: '下次打开应用时生效', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1145] : title: landscape ? '已设为横屏' : '已设为竖屏',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1147] : ? '下次打开应用时会重启一次运行时来切换物理面板方向（约十几秒），之后就不会再重启。'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1148] : : '下次打开应用时会把面板切回竖屏。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1155] : toast({ title: '画面大小已更新', body: '下次打开应用或切换应用时生效', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1161] : title: embed ? '已切回嵌入模式' : '已切到独立窗口模式',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1162] : body: '下次打开应用时生效。独立模式下安卓画面由模拟器自己开窗口，方向与缩放都由它处理。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1169] : title: r && r.fixed && r.fixed.length ? '已补齐快捷方式' : '快捷方式都还在',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1170] : body: r && r.fixed && r.fixed.length ? r.fixed.join('、') : '桌面与开始菜单入口正常',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1178] : toast({ title: '诊断报告已导出', body: `${r.diagnosis.title} · ${r.file}`, type: 'ok', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1180] : toast({ title: '导出失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1191] : toast({ title: '已经是精简状态', body: '没有可回收的旧镜像或快照。', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1197] : title: '清理完成',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1198] : body: `释放约 ${(r.saved / 1048576).toFixed(0)} MB（${r.removed.length} 项），已安装应用保留。`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1202] : $('usageText').textContent = `共 ${u.totalText} · 可回收 ${u.reclaimableText}（${u.count} 项）`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1204] : toast({ title: '清理失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1210] : // 重置安卓数据：二级确认（先确认意图，再确认不可撤销），清完刷新占用统计
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1217] : title: '重置安卓数据？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1218] : message: '这会把安卓系统还原成「刚装好系统」的干净状态：',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1219] : detail: '• 删除全部已安装的第三方 app（含红果、游戏等）及其数据、登录态\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1220] : + '• 删除当前 AVD 的快速启动快照\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1221] : + '• 系统镜像本身不受影响，重新打开应用会再次冷启动建数据\n\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1222] : + '此操作不可撤销。是否继续？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1223] : buttons: ['取消', '继续'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1230] : title: '再确认一次',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1231] : message: '已安装的 app 和它们的数据将被永久删除，确定要重置吗？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1232] : detail: '可放心的是：系统镜像、其它 AVD、本机的 APK 缓存和图标都不会动。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1233] : buttons: ['取消', '确定重置'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1240] : toast({ title: '重置失败', body: (r && r.error) || '请重试', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1244] : title: '安卓数据已重置',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1245] : body: `释放约 ${r.reclaimedMB} MB，已安装应用记录已清空。`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1249] : $('usageText').textContent = `共 ${u.totalText} · 可回收 ${u.reclaimableText}（${u.count} 项）`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1251] : toast({ title: '重置失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1257] : // 修复网络：安卓里联网页面一直黑屏（红果点「同意并继续」后整屏黑）时用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1258] : // 根因是虚拟机 /data 里的 Wi-Fi 配置坏了，wlan0 没起来、没有默认路由。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1259] : // Play Store 镜像不允许 root，只能整体重置 /data；应用清单保留，点开时会自动重装。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1266] : title: '修复虚拟机网络？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1267] : message: '应用里需要联网的页面一直黑屏/转圈，通常是安卓虚拟机没有网络。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1268] : detail: '修复会按「代价从小到大」依次尝试：\n\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1269] : + '1. 冷启动虚拟机（不加载快照）后等待联网 —— 不影响任何数据\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1270] : + '2. 仍不行才重置安卓数据 —— 应用清单保留、点开会自动重装，\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1271] : + '   但应用内的登录态、追剧记录等会丢失\n\n'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1272] : + '只影响当前 AVD，系统镜像和本机 APK 缓存都不动。整个过程约 1–5 分钟。是否继续？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1273] : buttons: ['取消', '开始修复'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1281] : title: '网络仍未恢复',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1282] : body: (r && r.error) || '重置后虚拟机还是没网，请检查本机网络/防火墙是否拦住了模拟器。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1288] : title: '网络已恢复',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1289] : body: `${(r.network && r.network.ip) || '已联网'}${r.wiped ? '（为修复网络重置过安卓数据，点开应用会自动重装）' : '（未动你的数据）'}`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1293] : toast({ title: '修复失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1299] : // 清理旧版本残留：扫描旧程序目录 / 失效卸载项 / 更新临时文件，确认后一次性清掉。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1306] : toast({ title: '扫描失败', body: (r && r.error) || '请重试', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1311] : toast({ title: '很干净', body: '没有发现旧版本残留。', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1316] : if (items.length > 8) lines.push(`…另有 ${items.length - 8} 项`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1319] : title: '清理旧版本残留？',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1320] : message: `找到 ${items.length} 项残留，约 ${mb} MB：`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1321] : detail: `${lines.join('\n')}\n\n只删除「旧版本程序目录 / 已失效的卸载项 / 更新临时文件」，`
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1322] : + '当前正在运行的版本和你的应用数据都不会动。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1323] : buttons: ['取消', '开始清理'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1330] : toast({ title: '清理失败', body: (c && c.error) || '请重试', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1333] : const failNote = (c.failed && c.failed.length) ? `，${c.failed.length} 项被占用未删` : '';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1335] : title: '已清理旧版本残留',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1336] : body: `删除 ${c.removed.length} 项，释放 ${c.freedMB || 0} MB${failNote}。`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1340] : $('usageText').textContent = `共 ${u.totalText} · 可回收 ${u.reclaimableText}（${u.count} 项）`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1342] : toast({ title: '清理失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1350] : // 重建快捷方式：桌面图标被误删 / 被安全软件拦掉时的兜底入口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1358] : ? { title: '快捷方式已重建', body: fixed.join('、'), type: 'ok' }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1359] : : { title: '快捷方式都在', body: '没有需要重建的入口', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1365] : // 共享目录：先浏览选目录，再「保存并迁移」把旧文件一次性搬到新目录
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1370] : toast({ title: '已选新目录', body: '点「保存并迁移」把旧文件搬过去', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1374] : if (!dir) { toast({ title: '请先填写或浏览目录', type: 'error' }); return; }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1381] : toast({ title: '共享目录已更新', body: moved ? '旧目录里已有的文件已迁移到新目录' : '已保存', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1383] : toast({ title: '保存失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1387] : // 一键卸载 ApkStart 本体（取消 .apk 关联 + 启动卸载程序；便携版手动删除）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1389] : const ok = window.confirm('确定卸载 ApkStart？\n\n将取消 .apk 文件关联并移除程序。此操作不可撤销。');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1397] : title: '便携版无法自动卸载',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1398] : body: `请手动删除程序目录（${r.exeDir}）与数据目录（${r.dataDir}）`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1405] : toast({ title: '卸载失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1408] : toast({ title: '正在卸载…', body: '卸载程序已启动，ApkStart 即将退出', type: 'ok', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1411] : // ARM 兼容镜像下载（带进度 toast）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1415] : const t = toast({ title: '开始下载 ARM 兼容镜像', body: '准备中…', sticky: true, spinner: true, progress: 3 });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1418] : t.update({ title: '下载 ARM 兼容镜像', body: p.message || '', progress: p.percent });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1423] : t.update({ title: 'ARM 兼容镜像就绪', body: '重启运行时后生效', progress: 100 });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1428] : t.update({ title: '兼容镜像下载失败', body: (r && r.error) || '未知错误', progress: null });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1430] : toast({ title: '兼容镜像下载失败', body: (r && r.error) || '未知错误', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1434] : toast({ title: '兼容镜像下载失败', body: e.message, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1441] : // 兼容镜像状态显示
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1450] : ? `已就绪（${(env.playImage.size / 1073741824).toFixed(2)} GB）` : '未下载';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1464] : toast({ title: '数据目录已更新', body: '请重启 ApkStart 使其生效（旧数据不会自动搬移）', type: 'ok', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1467] : // 安卓数据目录（AVD + 快照）：真正吃盘的那块，单独指到别的盘
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1475] : title: '安卓数据目录已更新',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1476] : body: '请重启 ApkStart 使其生效。旧目录里的 apkstart.avd 可以整体搬到新目录，再删掉旧的。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1492] : el.textContent = '探测中…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1495] : el.textContent = '未发现已运行的运行时';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1498] : el.textContent = `发现：${found.map((f) => f.name).join('、')}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1506] : el.textContent = '正在启动…';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1508] : el.textContent = r.ok ? `已就绪：${r.engine}` : `启动失败：${r.error}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1514] : $('probeResult').textContent = '已停止内置虚拟机';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1522] : btn.textContent = '未关联 · 点击开启';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1524] : toast({ title: '.apk 关联已取消' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1527] : btn.textContent = '已关联 · 点击取消';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1529] : toast({ title: '.apk 关联已开启', body: r.ok ? '现在双击 APK 会直接安装到 ApkStart' : '', type: r.ok ? 'ok' : 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1534] : /* ---------------- 事件绑定 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1537] : // 链接统一走系统浏览器
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1546] : // 状态标签也当入口：点「需要部署 / 引导中 / Android 14」直接进设置的运行时面板
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1554] : // 运行时部署：入口已收进设置，这里只处理面板内的按钮
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1566] : // 状态条上的自检计数：点开就是设置里的运行时面板
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1582] : if (!r.ok) toast({ title: '操作失败', body: r.error, type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1587] : if (r.ok) { toast({ title: '系统镜像已导入', body: r.path, type: 'ok' }); refreshStatus(); }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1588] : else if (!r.canceled) toast({ title: '导入失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1593] : if (r.ok) { toast({ title: '虚拟磁盘已导入', body: '可直接启动运行时', type: 'ok' }); refreshStatus(); }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1594] : else if (!r.canceled) toast({ title: '导入失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1599] : const t = toast({ title: '正在启动运行时…', body: '首次启动需要引导 Android 系统', sticky: true, spinner: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1601] : if (r.ok) { t.update({ title: '运行时已就绪', type: 'ok' }); setTimeout(t.dismiss, 2200); }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1602] : else t.update({ title: '启动失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1608] : toast({ title: '运行时会话已结束' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1619] : // 共享目录入口移到设置里：同步 + 打开都在「文件互通」组内
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1625] : toast({ title: '已同步共享目录', type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1627] : toast({ title: '同步失败', body: '运行时未就绪时会跳过同步', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1641] : // 「添加应用」卡片没有 data-pkg，走安装流程而不是启动。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1642] : // 直接转调工具栏那个「安装 APK」按钮，复用它的文件选择逻辑。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1679] : // 拖放安装
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1701] : else toast({ title: '只能拖入 .apk 文件', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1704] : // 主进程事件
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1706] : // 报错了就别再让「正在安装…」那条一直转圈（可能来自双击 APK 的另一条链路）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1710] : title: name ? `安装失败：${name}` : '安装失败',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1711] : body: friendlyInstallErrorText((p && p.message) || '未知错误'),
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1717] : // 应用被关掉（托盘「关闭当前应用」、右键菜单、或窗口被关）后要刷新「运行中」标记
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1728] : // 启动 8 秒后才拿到更新信息：欢迎卡若还开着，把「发现新版本」这条补进去
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1735] : /* ---------------- 启动 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1754] : /* ---------------- 启动欢迎卡 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1759] : if (h < 5) return '夜深了';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1760] : if (h < 11) return '早上好';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1761] : if (h < 13) return '中午好';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1762] : if (h < 18) return '下午好';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1763] : return '晚上好';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1780] : /** 决定要不要弹：开机自启必弹；手动打开则每天最多一次，且用户可永久关闭 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1784] : // 冒烟截图时不要弹欢迎卡：否则每次自动截图都被它挡住主界面
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1793] : $('welcomeHi').textContent = `${greetingOf(h)}，欢迎回来`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1796] : $('welcomeSub').textContent = `ApkStart${ver ? ` v${ver}` : ''} · ${ready ? '运行时就绪，点开即用' : '运行时会按需自动准备'}`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1801] : { k: String(apps), v: '已装应用' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1802] : { k: ready ? '就绪' : '待命', v: '安卓运行时' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1803] : { k: dev ? dev.replace(/^.*?(\d+)/, '$1') : '—', v: '设备 / 端口' },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1816] : /** 提示区单独渲染：启动 8 秒后才拿到更新信息，那时卡片可能还开着，需要补一次 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1823] : tips.push(`发现新版本 <b>${esc(lastUpdate.tag || '')}</b>，可在「设置 → 软件更新」一键更新`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1826] : tips.push('把 APK 拖进窗口就能安装，装完会自动生成桌面图标');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1828] : tips.push('双击应用卡片即可在独立窗口中运行，右上角可旋转 / 缩放 / 关闭');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1830] : tips.push('关窗口只是退出那个应用，安卓环境会留着，下次点开更快');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1836] : /* ---------------- 环境自检 ---------------- */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1840] : /** 拉取 doctor:selfCheck：把问题渲染到设置里的自检面板，并在状态条上留一个计数 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1847] : } catch (_) { /* 自检失败不阻断主流程 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1854] : // 「组件缺失」在同一个面板的一键完成里已经覆盖，不再重复列出
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1858] : // 主界面不再放横幅：只在底部状态条上留一个可点的计数，点开就是设置里的自检面板
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1863] : chip.textContent = errs ? `${errs} 项待修复` : `${issues.length} 项提示`;
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1873] : <span>环境自检通过，没有发现会影响运行的问题。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1875] : <button class="btn ghost sm" id="btnEnvRecheck">重新检查</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1886] : <span class="ec-title">环境自检</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1887] : ${errs ? `<span class="ec-count">${errs} 个严重</span>` : ''}
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1888] : ${warns ? `<span class="ec-count warn">${warns} 个提示</span>` : ''}
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1890] : <button class="btn ghost sm" id="btnEnvRecheck">重新检查</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1891] : <button class="btn primary sm" id="btnEnvFixAll">一键修复全部</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1901] : ${i.fix ? `<button class="ec-fix" data-code="${esc(i.code)}">修复</button>` : ''}
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1922] : toast({ title: '未找到内置安装包', body: '已打开微软官方下载页，请下载 x64 版本', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1926] : ? { title: 'VC++ 运行库已安装', type: 'ok' }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1927] : : { title: '安装未完成', body: r.error || '请重试', type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1931] : const t = toast({ title: '正在开启硬件加速…', body: '请在弹出的窗口点「是」', sticky: true, spinner: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1934] : t.update({ title: '硬件加速已启用', body: r.restartNeeded ? '请重启电脑以获得最佳性能' : (r.note || ''), type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1937] : t.update({ title: '未能开启', body: r.error || '请重试', type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1942] : // 主进程会弹出原生确认框（含可释放空间预览），这里不再重复 confirm
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1944] : if (!r) { toast({ title: '清理失败', body: '请重试', type: 'error' }); break; }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1946] : toast({ title: '清理完成', body: `释放约 ${((r.saved || 0) / 1048576).toFixed(0)} MB`, type: 'ok' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1950] : toast({ title: '建议改到纯英文目录', body: '在 设置 → 系统集成 里修改「运行时数据目录」，再重启软件。', type: 'info', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1955] : toast({ title: '正在补齐缺失的运行时组件…', type: 'info', sticky: true, spinner: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1961] : toast(r.ok ? { title: '已清理残留锁文件', type: 'ok' } : { title: '清理失败', body: r.error, type: 'error' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1965] : toast({ title: '暂不支持自动修复', body: issue.hint || '', type: 'info' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1967] : // 修复后重新自检，刷新横幅与状态
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\app.js [Ligne 1984] : toast({ title: '初始化失败', body: e.message, type: 'error', sticky: true });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 12] : <!-- 品牌标记：小尺寸下也要认得出来，所以用矢量而不是 1024 的位图缩到 22px -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 34] : <span class="brand-tag" id="engineTag">未连接运行时</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 38] : <button class="icon-btn" id="btnSettings" title="设置">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 48] : <input id="search" type="text" placeholder="搜索已安装应用" autocomplete="off" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 53] : 安装 APK
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 71] : <h2>把 APK 拖进来就能装</h2>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 72] : <p>安装完成后会自动生成桌面图标，双击即以独立窗口运行，和普通 Windows 软件一样。<br/>已注册 .apk 关联时，在资源管理器里双击 APK 也会直接装到 ApkStart。</p>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 73] : <button class="btn primary lg" id="btnInstall2">选择 APK 文件</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 81] : <span id="statusText">正在检查运行时…</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 96] : <!-- 启动欢迎卡：替代原来散落的各种启动小提示 -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 102] : <div class="welcome-hi" id="welcomeHi">你好</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 103] : <div class="welcome-sub" id="welcomeSub">ApkStart 已就绪</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 110] : <span>下次启动不再自动弹出</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 114] : <button class="btn ghost" id="welcomeSettings">打开设置</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 115] : <button class="btn primary" id="welcomeOk">开始使用</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 120] : <!-- 安装进度 -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 123] : <!-- 拖放遮罩 -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 127] : <strong>松手开始安装</strong>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 128] : <span>支持单个或多个 .apk 文件</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 132] : <!-- 右键菜单 -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 135] : <!-- 设置 -->
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 139] : <h2>设置</h2>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 146] : <div class="group-title">运行时与环境</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 148] : <label>运行状态</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 150] : <span class="inline-note" id="setupStateText">正在检查…</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 152] : <button class="btn primary sm" id="btnDeployAll">一键完成</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 153] : <button class="btn ghost sm" id="btnSetupAdvanced">高级：连接已有运行时</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 155] : <span class="sub" id="setupNote">全自动：无需选择镜像、无需启用加速、无需调内存</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 163] : <h2>安装 Android 到虚拟磁盘</h2>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 164] : <p class="guide-sub">虚拟机窗口已打开。按下面 6 步操作一次，之后 ApkStart 会直接从磁盘启动，不再需要镜像。</p>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 166] : <li><b>启动菜单</b>：用 <kbd>↓</kbd> 选到 <code>Installation - Install Android-x86 to harddisk</code>，回车</li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 167] : <li><b>Choose Partition</b>：选 <code>Create/Modify partitions</code>；询问是否使用 GPT 时选 <code>No</code></li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 168] : <li><b>cfdisk 分区</b>：<code>New</code> → <code>Primary</code> → 容量直接回车 → <code>Bootable</code> → <code>Write</code> → 输入 <code>yes</code> → <code>Quit</code></li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 169] : <li><b>格式化</b>：选 <code>vda1</code> → 提示格式化时选 <code>ext4</code> → <code>Yes</code></li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 170] : <li><b>引导与系统</b>：<code>Install GRUB</code> 选 <code>Yes</code>；<code>Install /system as read-write</code> 选 <code>Yes</code></li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 171] : <li><b>完成</b>：进度到 100% 后点下面的「我已安装完成」（ApkStart 会自动重启并接管）</li>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 173] : <p class="guide-tip">如果之后提示 adb 未连接：在虚拟机窗口按 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd> 进入终端，执行
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 175] : 再按 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F7</kbd> 回到图形界面。</p>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 177] : <button class="btn primary" id="btnMarkInstalled">我已安装完成</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 178] : <button class="btn ghost" id="btnGuideClose">稍后再说</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 184] : <div class="group-title">自动模式（默认，无需设置）</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 186] : <label>本机自适应参数</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 187] : <div class="inline-note" id="autoProfileText">正在检测…</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 188] : <span class="sub">内存、核心数、渲染后端、端口、加速方式全部自动选择；启动失败会自动降级重试，不需要手动改。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 191] : <label>磁盘总占用（运行时 + 安卓数据 + 缓存）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 193] : <span class="inline-note" id="usageText">正在统计…</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 194] : <button class="btn ghost sm" id="btnCleanup">清理可回收文件</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 195] : <button class="btn ghost sm" id="btnLeftovers" title="扫描并清掉旧版本留下的程序目录、失效的卸载项和更新临时文件">清理旧版本残留</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 196] : <button class="btn ghost sm" id="btnRepairNetwork" title="安卓虚拟机没有网络时（应用里联网页面一直黑屏/转圈），用这个把安卓数据重置掉来修网络。应用清单会保留，点开应用会自动重装">修复网络</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 197] : <button class="btn ghost sm danger" id="btnResetData" title="清空安卓 /data 用户数据 + 已装应用 + 快速启动快照，还原成刚装好系统的干净状态">重置安卓数据</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 201] : <span>连当前 AVD 的快速启动快照也一起清（会先停运行时，能真正回收几 GB 快照）</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 203] : <span class="sub">系统镜像全机共享一份，应用数据用差分层保存；旧镜像、旧快照、日志和锁文件都可回收。日志超过上限会自动滚动，不会无限增长。「重置安卓数据」会真实删除数 GB 用户数据，仅保留系统本身。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 206] : <button class="btn ghost sm" id="btnDiagnostics">导出诊断报告</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 207] : <button class="btn ghost sm" id="btnRebuildShortcuts">重建快捷方式</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 208] : <span class="inline-note">诊断报告用于排障；重建会补齐桌面 + 开始菜单入口</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 212] : <label>开机自动启动（默认开启）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 213] : <span class="sub">随 Windows 登录常驻托盘，双击桌面图标秒开应用，无需手动启动。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 220] : <div class="group-title">应用窗口</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 222] : <label>显示模式</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 224] : <option value="window">竖屏窗口（可自由拉伸，记住每个应用的大小）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 225] : <option value="fullscreen">全屏（铺满屏幕，保持手机比例两侧留黑）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 227] : <span class="sub">随时按 <b>F11</b> 或右键托盘切换；全屏只放大窗口，不改变画面比例，切换不重启应用。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 230] : <label>自动全屏</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 232] : <option value="off">关闭（按上面选的显示模式走）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 233] : <option value="on">打开 · 每次启动应用都自动全屏</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 235] : <span class="sub">打开后，每次点开应用直接铺满屏幕，不用再按 F11。配合下面的「横屏」使用效果最好
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 236] : —— 横屏面板的宽高比本来就贴合屏幕，全屏不会留黑边。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 239] : <label>屏幕方向</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 241] : <option value="portrait">竖屏（手机比例，适合刷短视频、看小说）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 242] : <option value="landscape">横屏（宽屏铺满，适合看剧、玩游戏）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 244] : <span class="sub">横屏要改的是<b>虚拟手机的面板方向</b>，所以下次启动应用时会自动重启一次运行时
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 245] : （约十几秒，只在那一次）。之后再启动都是直接用横屏面板，不再重启。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 248] : <label>窗口承载方式</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 250] : <option value="embed">嵌入模式（默认）· 安卓画面嵌在 ApkStart 窗口里，观感统一</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 251] : <option value="detached">独立窗口 · 由模拟器自己开窗口，避开花屏/黑边/点不准</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 253] : <span class="sub">嵌入模式最像「一个应用一个窗口」，但需要把模拟器的窗口塞进我们自己的窗口，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 254] : 容易在缩放、旋转、多窗口切换时出现黑边或点击错位。独立模式下方向、缩放、输入都由模拟器原生处理，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 255] : 这类问题不会出现，代价是多一个任务栏图标。改动在下次打开应用时生效。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 258] : <label>竖屏画面大小</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 260] : <option value="720x1280">小 · 720 × 1280</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 261] : <option value="900x1600">中 · 900 × 1600</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 262] : <option value="1080x1920">大 · 1080 × 1920</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 263] : <option value="1440x2560">超大 · 1440 × 2560</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 265] : <span class="sub">窗口模式下可拖动边框任意缩放；这里调的是 Android 内部渲染尺寸，越小越省性能。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 270] : <div class="group-title">鼠标键位</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 272] : <label>左键 · 确认 / 点击</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 273] : <span class="sub">模拟器原生把左键当成手指点击，按住拖动就是滑动，无需额外设置。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 277] : <label>右键 · 安卓返回</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 278] : <span class="sub">模拟器默认把右键也当成一次点击（容易误触）。开启后右键只执行返回，不再触发点击。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 283] : <label>滚轮 · 滑动</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 285] : <option value="smooth">平滑（推荐）· 合并多次滚动为一次流畅滑动</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 286] : <option value="native">原生 · 交给模拟器逐格处理</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 287] : <option value="off">关闭 · 不拦截滚轮</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 289] : <span class="sub">平滑模式把一小段时间内的滚动合并成一次滑动手势，避免逐格抽搐，也不会每格都拉起一个 adb 进程。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 293] : <label>鼠标侧键 · 返回 / 前进（默认关闭）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 294] : <span class="sub">侧键映射需要全局鼠标钩子。钩子只在 ApkStart 应用窗口处于前台时安装，失焦或关闭立即卸载，不会拖慢桌面。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 299] : <span class="sub">以上映射只在应用窗口前台生效；切回桌面或关闭窗口后，鼠标行为完全恢复 Windows 原生。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 304] : <div class="group-title">性能与资源占用</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 306] : <label>资源策略</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 308] : <option value="save">省资源 · 2 核 / 让出前台 / 540p（老机器、挂机）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 309] : <option value="balanced">均衡 · 一半物理核 / 让出前台 / 720p（推荐）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 310] : <option value="smooth">流畅 · 不限核数 / 与前台同优先级（视频、游戏）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 312] : <span class="sub">决定安卓虚拟机吃多少 CPU、画面多细腻。红果/抖音发卡就切「流畅」，只想挂着跑小应用就切「省资源」。改完下一次打开应用生效。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 316] : <label>画质（安卓内部渲染分辨率）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 318] : <option value="auto">自动（按加速状态）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 319] : <option value="540x960">流畅 · 540 × 960</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 320] : <option value="720x1280">均衡 · 720 × 1280</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 321] : <option value="1080x1920">高清 · 1080 × 1920</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 325] : <label>安卓数据分区（应用与游戏装这里）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 327] : <option value="0">自动</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 339] : <button class="btn ghost sm" id="btnGrowData">立即扩容</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 340] : <span class="sub" style="flex:1;margin:0">扩容是就地做的：已装应用与存档都保留，只是下次打开应用会多花十几秒。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 344] : <span class="sub" id="dataNote">正在读取数据分区…</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 348] : <label>网络加速（推荐）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 349] : <span class="sub">给安卓指定国内公共 DNS（阿里 / 腾讯）。安卓默认走主机的 DNS，主机挂着 VPN 或走公司网时解析会拖到几百毫秒，视频类应用首屏发慢。内网域名访问异常时可关掉。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 355] : <label>安卓声音</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 356] : <span class="sub">让应用提示音、视频声音正常播放。仅在你完全不需要声音、想再省一点 CPU 时关闭。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 362] : <label>保留快速启动快照（推荐）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 363] : <span class="sub">第二次打开应用只要几秒，代价是磁盘上多一份约 2–3 GB 的 <code>ram.bin</code>。磁盘紧张可以关掉：只影响启动速度，不影响应用与存档。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 368] : <summary>容器细节（高级）</summary>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 371] : <label>轻量容器</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 372] : <span class="sub">收敛 vCPU 配额并降低进程优先级，CPU 优先让给 Windows 桌面。上面的「资源策略」已经会自动设置这一项。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 377] : <label>虚拟机优先级</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 379] : <option value="balanced">均衡（推荐）· 运行时让着前台窗口</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 380] : <option value="performance">性能优先 · 运行时与前台同等优先级</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 381] : <option value="game">游戏 / 低延迟 · 运行时高优先级，适合 FPS、音游</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 383] : <span class="sub">游戏模式会让安卓虚拟机保持较高 CPU 优先级并减少宿主侧轮询，输入与画面延迟最低；代价是整机其他程序会变慢。没有应用窗口时容器仍会自动降优先级停放。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 388] : <label>深度裁剪系统后台</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 389] : <span class="sub">额外禁用 Play 商店、设置向导、打印服务等后台包，只留打开应用必需的环境。若遇到应用提示缺少 Google Play 服务，关掉此开关会自动恢复。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 395] : <label>开机预热（推荐）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 396] : <span class="sub">启动 ApkStart 后就在后台把安卓环境引导好（窗口全程隐藏，不会看到模拟器）。之后点任何应用只剩一次「打开」，实测从 20 多秒降到几乎不用等。代价是空闲时常驻约 1GB 内存，关掉后第一次打开应用需要冷启动。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 401] : <span class="sub">安卓环境只开机一次并常驻；之后打开应用不再重跑整个系统，只启动该应用并停掉其他应用进程。关掉最后一个窗口会清后台、停放容器，下次点开仍是秒进。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 406] : <div class="group-title">下载与更新源</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 408] : <label>更新与下载源</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 410] : <option value="auto">自动选择较快的源（推荐）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 411] : <option value="gitee">只用 Gitee（国内通常最快）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 412] : <option value="github">只用 GitHub</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 414] : <span class="sub">「自动」会同时问 GitHub 与 Gitee 的最新版本，把每个下载地址都真下 256KB 测一次速度，再从最快的那个地址下载；其中一个源不通不影响更新。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 418] : <label>自动尝试公共加速镜像</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 419] : <span class="sub">GitHub 直连太慢时，额外测速 ghfast.top / gh-proxy.com 这两个公开转发服务（只转发公开的发布文件，不涉及账号）。关掉后只用直连和你自己填的前缀。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 424] : <label>下载镜像前缀（可选，加速 GitHub）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 425] : <input id="setMirrorPrefix" type="text" placeholder="例如 https://ghfast.top/" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 426] : <span class="sub">填了就只用你填的前缀，不再尝试上面那两个公共镜像；留空则由「自动」逻辑决定。下载器会把它拼在真实地址前面。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 429] : <label>下载线程数（1–16，默认 8）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 431] : <span class="sub">大文件按块并行下载。默认 8 线程已经能跑满大多数家宽；网络稳定时可以试 16。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 434] : <summary>Gitee 更新源（可选）</summary>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 436] : <label>Gitee 只读 token（一般不用填）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 437] : <input id="setGiteeToken" type="password" placeholder="留空即可：公开仓库匿名也能读" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 438] : <span class="sub">本项目仓库已公开，Gitee 的发行版列表匿名就能读，留空也能用 Gitee 源。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 439] : 只有在「Gitee 被限流（返回 403/429）」或你想读私有分支时才需要填：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 440] : gitee.com → 设置 → 私人令牌，只勾「projects」即可，它只用于读取发行版列表，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 441] : 不会上传任何东西。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 447] : <summary>高级参数（一般无需修改）</summary>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 449] : <div class="group-title">运行时</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 451] : <label>引擎模式</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 453] : <option value="builtin">自带运行时（推荐，QEMU + Android-x86，无第三方依赖）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 454] : <option value="mumu">MuMu 模拟器 12（复用本机已装的网易模拟器）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 455] : <option value="fydeos">FydeOS 安卓子系统（FydeOS 装在本机，或跑在 VMware / VirtualBox 里）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 456] : <option value="attach">连接已有运行时（高级：复用 WSA / 其他模拟器的 adb 端口）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 458] : <span class="sub">「自带运行时」会自己下载安卓镜像；选第三方模拟器时不下载任何东西，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 459] : 直接驱动你电脑上已经装好的那台，装的应用和它自己的应用共用一套环境。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 460] : FydeOS 底座驱动 FydeOS 自带的安卓环境（需要先在它的安卓设置里打开「ADB 调试」）；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 461] : FydeOS 跑在虚拟机里时，要在下面填那台虚拟机的地址。它不嵌窗口，画面由 FydeOS 自己显示。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 464] : <label>FydeOS 安卓子系统地址</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 465] : <input id="setFydeosHost" type="text" placeholder="127.0.0.1:5555，或虚拟机的局域网 IP:5555" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 466] : <span class="sub">FydeOS 跑在 VMware / VirtualBox 里时必填。最省事的配法：给虚拟机做端口转发
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 467] : （宿主 5555 → guest 5555），然后填 <b>127.0.0.1:5555</b>。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 468] : 直接装在本机的 FydeOS 可以留空（自动探测 arc:5555 等）。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 471] : <label>MuMu 安装目录（留空自动查找）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 472] : <input id="setMumuPath" type="text" placeholder="例如 D:\MuMu Player 12" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 473] : <span class="sub">默认会按注册表和常见路径自动找 MuMuManager.exe；装在非常规盘符时在这里指定。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 476] : <label>adb 路径</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 477] : <input id="setAdbPath" type="text" placeholder="留空则自动在 PATH / Android SDK 中查找" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 480] : <label>设备地址</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 483] : <button class="btn ghost sm" id="btnProbe">探测</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 487] : <label>系统镜像（ISO）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 488] : <input id="setSystemImage" type="text" placeholder="Android-x86 / Bliss OS 的 ISO 或 IMG 路径，留空使用默认位置" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 492] : <label>内存 (MB，0 = 自动)</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 496] : <label>CPU 核心（0 = 自动）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 501] : <label>空闲回收（分钟，0 = 不回收）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 506] : <label>通用兼容镜像（自动管理）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 507] : <span class="sub">现在只有一个 Android 14 通用镜像，x86 与 ARM 应用都能跑，首次遇到 ARM 应用时会自动下载，不需要手动切换。此开关仅用于旧配置兼容。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 512] : <label>兼容镜像</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 514] : <span class="inline-note" id="compatImgStatus">未下载</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 515] : <button class="btn ghost sm" id="btnInstallPlay">下载兼容镜像</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 519] : <button class="btn ghost sm" id="btnRuntimeStart">启动运行时</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 520] : <button class="btn ghost sm" id="btnRuntimeStop">停止内置虚拟机</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 527] : <div class="group-title">安卓系统设置（不用进安卓桌面）</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 529] : <label>运行状态</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 531] : <span class="inline-note" id="androidStatus">运行时未启动</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 532] : <button class="btn ghost sm" id="btnAndroidRefresh">刷新</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 533] : <button class="btn ghost sm" id="btnAndroidTune">一键流畅优化</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 535] : <span class="sub">关闭系统动画、放开后台进程上限并把当前应用加入电池白名单，低配电脑体感最明显。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 540] : <span class="sub">安卓虚拟机内部的无线网，关掉可省一点 CPU。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 546] : <label>飞行模式</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 547] : <span class="sub">彻底断网（含移动数据），需要安静时打开。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 553] : <label>系统动画</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 554] : <span class="sub">关掉后界面切换明显更快，功能不受影响。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 559] : <label>媒体音量</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 567] : <label>字体大小</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 569] : <option value="0.85">小</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 570] : <option value="1.00">标准</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 571] : <option value="1.15">大</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 572] : <option value="1.30">特大</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 576] : <label>显示大小</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 578] : <option value="240">紧凑（省性能）</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 579] : <option value="320">标准</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 580] : <option value="420">宽松</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 581] : <option value="480">特大</option>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 586] : <button class="btn ghost sm" id="btnAndroidSettings">安卓原生设置</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 587] : <button class="btn ghost sm" id="btnAndroidDisplay">显示设置</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 588] : <button class="btn ghost sm" id="btnAndroidSound">声音设置</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 589] : <button class="btn ghost sm" id="btnAndroidLocale">语言设置</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 590] : <button class="btn ghost sm" id="btnAndroidApps">应用管理</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 595] : <div class="group-title">桌面与应用</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 598] : <label>安装后自动创建桌面快捷方式</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 599] : <span class="sub">快捷方式带真实应用图标，双击直接进应用</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 605] : <label>同时添加到开始菜单</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 606] : <span class="sub">Windows 搜索能搜到应用名，任务栏也按应用分组</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 611] : <label>快捷方式目录</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 612] : <input id="setShortcutDir" type="text" placeholder="留空 = 桌面" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 615] : <button class="btn ghost sm" id="btnRebuildShortcuts">重建快捷方式</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 616] : <span class="inline-note">桌面图标被误删或被安全软件拦掉时，点这里按当前设置全部补齐。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 621] : <div class="group-title">文件互通</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 623] : <label>本机共享目录</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 626] : <button class="btn ghost sm" id="btnBrowseShared">浏览</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 627] : <button class="btn ghost sm" id="btnOpenShared">打开</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 628] : <button class="btn ghost sm" id="btnSyncShared">立即同步</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 629] : <button class="btn primary sm" id="btnSaveShared">保存并迁移</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 631] : <span class="sub">修改后旧目录里已有的文件会自动搬到新目录；正在运行的文件互通不受影响。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 634] : <label>安卓内对应目录</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 637] : <p class="note">两侧目录会持续双向同步；在安卓应用里保存到该目录的文件，会出现在本机共享目录中。</p>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 641] : <div class="group-title">系统集成</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 644] : <label>关联 .apk 文件</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 645] : <span class="sub">双击 APK 直接安装到 ApkStart（仅写入当前用户，无需管理员）</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 647] : <button class="btn ghost sm" id="btnAssoc">检查中…</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 650] : <label>运行时数据目录（系统镜像 · 已装应用 · 快照）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 652] : <input id="setRuntimeDir" type="text" readonly placeholder="默认：C 盘用户数据目录" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 653] : <button class="btn ghost sm" id="btnBrowseRuntimeDir">浏览</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 654] : <button class="btn ghost sm" id="btnOpenData">打开</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 656] : <span class="sub">这里占用空间最大（数 GB）。改到非系统盘可大幅减轻 C 盘压力；修改后需重启软件，已存在的数据不会自动搬移（请手动复制后删除旧目录）。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 659] : <label>安卓数据目录（应用、游戏与快速启动快照）</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 661] : <input id="setAvdDir" type="text" readonly placeholder="默认：运行时目录下的 avd 文件夹" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 662] : <button class="btn ghost sm" id="btnBrowseAvdDir">浏览</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 663] : <button class="btn ghost sm" id="btnOpenAvdDir">打开</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 665] : <span class="sub">真正吃盘的是这一块：数据分区（默认 6 GB，可在上面对大）+ 快速启动快照（约 2–3 GB）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 666] : 磁盘紧张时把它指到另一个盘（如 D:），重启软件后生效；旧目录里的 <code>apkstart.avd</code> 可整体搬过去再删。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 669] : <label>卸载 ApkStart</label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 671] : <button class="btn ghost sm" id="btnUninstall">一键卸载</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 672] : <span class="inline-note">卸载会取消 .apk 关联并移除程序；便携版请按提示手动删除目录。</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 677] : <div class="group-title">软件更新</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 679] : <label>当前版本 <span class="inline-note" id="updateCurrent">—</span></label>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 681] : <span class="inline-note" id="updateState">尚未检查</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 683] : <button class="btn ghost sm" id="btnCheckUpdate">检查更新</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 684] : <button class="btn primary sm" id="btnDoUpdate" style="display:none" hidden>立即更新</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 688] : 从 GitHub（RoutineMiku/apkstart）获取最新版本；轻量版会下载便携包并自动替换程序文件，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 689] : 运行时、已装应用与快照都不受影响。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 695] : <div class="group-title">关于</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 702] : <img src="assets/wechat-qr.jpg" alt="微信公众号二维码" width="112" height="112" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 703] : <span class="about-qr-tip">扫码关注公众号</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 706] : <img src="assets/douyin-qr.jpg" alt="抖音二维码" width="112" height="112" />
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 707] : <span class="about-qr-tip">抖音 · 日常MIKU</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 712] : <p class="note">双击即装的 Windows 安卓应用启动器：APK 安装、桌面快捷方式、独立窗口运行、文件双向互通。</p>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 715] : <a href="https://v.douyin.com/9TIIxVCANig/" target="_blank" rel="noopener">抖音 · @日常MIKU（联系作者）</a>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 723] : <span class="inline-note">设置修改后立即生效</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\index.html [Ligne 724] : <button class="btn primary" id="btnDoneSettings">完成</button>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 12] : <span class="name" id="appName">应用</span>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 14] : <button class="ctl" id="btnRotate" title="横屏 / 竖屏（Ctrl+R）">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 20] : <button class="ctl" id="btnMin" title="最小化">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 23] : <button class="ctl" id="btnMax" title="最大化">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 26] : <button class="ctl close" id="btnClose" title="关闭">
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.html [Ligne 36] : <div class="boot-tip" id="bootTip">正在启动安卓运行时…</div>
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.js [Ligne 2] : /* 应用窗口标题栏：只有 旋转 / 最小化 / 最大化 / 关闭，其余设置都在 ApkStart 主界面 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.js [Ligne 18] : // 标题栏上右键不要弹出 Chromium 的网页菜单；画面区域的右键已由主进程
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.js [Ligne 19] : // 拦下并映射成「安卓返回」，这里补掉外壳这一圈。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.js [Ligne 22] : // Ctrl+R 旋转，F11 最大化（和 Windows 习惯一致）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\ui\shell.js [Ligne 32] : $('appName').textContent = s.label || '应用';
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 3] : * ApkStart 主进程
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 4] : * 职责：窗口 / 托盘 / 单实例 / 命令行分发（双击 apk、桌面快捷方式启动）/ IPC
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 17] : // 品牌 Logo（build/render-logo.js 生成）；缺失时回退到程序化绘制的旧版图标
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 27] : } catch (_) { /* 落到程序化图标 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 41] : // Windows 下窗口被遮挡时 capturePage 会拿到旧帧，自动化截图需要禁用遮挡计算
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 45] : * 系统盘快满时，把 Chromium 自己的缓存（Cache / GPUCache / Local Storage …）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 46] : * 挪到「安卓数据目录」所在的盘。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 47] : * 默认这些缓存写在 %APPDATA%\apkstart 里 —— C 盘只剩几百 MB 时，连启动都可能失败，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 48] : * 而用户往往已经把安卓数据挪到别的盘了，缓存却还在 C 盘上挤。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 49] : * 必须在 app ready 之前设置，之后改无效。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 62] : } catch (_) { /* 放不进去就维持默认，不影响启动 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 66] : // 应用窗口把模拟器以 SetParent 方式嵌进来当子窗口。Chromium 默认用
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 67] : // DirectComposition 上半透明图层（Intermediate D3D Window /
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 68] : // WS_EX_NOREDIRECTIONBITMAP）绘制网页，这层由 DWM 在窗口级别合成，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 69] : // 会直接盖住嵌入的子窗口——表现就是"画面全黑但安卓其实在跑"。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 70] : // 外壳界面只有一条 38px 标题栏和启动遮罩，走软件合成完全不卡，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 71] : // 关掉硬件加速后 Chromium 直接画进 HWND，子窗口层级才真正生效。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 72] : // 想对比效果时可以设 APKSTART_HWACCEL=1 启动。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 79] : * 轻量文件日志：打包后没有控制台，出问题时用户可以把 app.log 发过来。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 80] : * 只记关键节点和异常，正常路径几千行也不会撑爆。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 87] : } catch (_) { /* 日志失败不能影响主流程 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 93] : * 完整版（内置运行时）自动接管：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 94] : * 发行包里 ApkStart.exe 旁边带有 runtime/（emulator + platform-tools + AEHD + ARM 兼容镜像）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 95] : * 首次启动（settings.json 尚不存在）时直接把 runtime.dir 指向它并开启兼容模式，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 96] : * 用户无需任何下载与设置，开箱即用。之后用户仍可在设置里改回在线版。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 101] : // 便携版把运行时放在 exe 旁边；electron-builder 的 portable 会把资源解到
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 102] : // resources/ 下，进程 exe 和 resources 同级，所以几个候选位置都看一下。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 109] : // 内置运行时只要求「有 emulator + 任意一套完整系统镜像」，不写死 API 版本：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 110] : // 单文件发行版带的可能是更小的 AOSP 镜像，写死 API34 会让它误判成没有运行时。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 123] : // 单文件发行版里的镜像是压缩存放的（system.img.xz / .gz），解压在首次启动时做。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 124] : // 这里只认 system.img 会让「包里明明带了镜像」被判成没带，转而去联网下载。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 138] : // 旧版只在 settings.json 不存在时接管：用户先装过在线版再解压完整版，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 139] : // 就会一直走「缺组件」的部署向导。现在只要当前运行时目录里没有 emulator 就接管。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 143] : // 便携版被移动/升级（解压到新目录）后，settings 里记的还是旧路径：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 144] : // 必须只认「本次 EXE 所在目录下的 runtime」，否则会一直用旧包里的组件
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 145] : // （实测踩过：旧包的 emulator 缺 emulator-check → 加速探测失败 → 退回 TCG 软件模拟）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 149] : // 用户自己挑的目录（不在 EXE 目录树里，例如 D:\ApkStartRuntime 或别的盘）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 150] : // 一律尊重：他可能就是为了省 C 盘空间、或让多个便携版共用一个运行时。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 151] : // 旧版在这里无条件覆盖成 exe 旁边的 bundled runtime，表现就是
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 152] : // 「设置里改了运行时数据目录，结果还是下到旧目录 / AppData」（issue #23）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 159] : // 已有可用运行时（含在线版）就尊重它：AVD 用户数据就在该目录下，不能悄悄搬走
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 161] : // 但仍把自动参数打开，旧配置里的硬编码 4G/4核/弃用 GPU 模式不能继续用
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 167] : // 包里带的是 Google Play 镜像才开兼容模式；AOSP 镜像带的是原生 x86_64 库
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 176] : } catch (_) { /* 忽略 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 181] : } catch (_) { /* 接管失败不阻塞启动，走在线引导 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 185] : // 冒烟截图等自动化场景下跳过注册表探测（避免依赖 reg.exe）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 192] : // 「哪些窗口算我们的」由 whenReady 里赋值（见 agentScope）。放模块级是因为
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 193] : // runLaunch / 预热定时器都早于那段代码定义，闭包里的 const 在它们的作用域外看不到。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 206] : // ---------------- 命令行解析 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 214] : // Electron 会往 argv 里塞自己的开关和 app 路径，只认形如 com.foo.bar 的包名
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 223] : /** Chromium 能解 WebP，nativeImage 不能；用隐藏窗口把 APK 图标转成 PNG */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 244] : /** 开机自启：默认开启，不需要用户去设置里勾 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 246] : if (!app.isPackaged) return; // 开发时不写注册表
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 249] : // 必须显式给 name，否则注册表里的启动项会叫 "electron.app.Electron"
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 256] : // 清掉旧版本（没传 name）留下的那条，避免重复启动
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 258] : } catch (_) { /* 组策略禁止时忽略 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 261] : // ---------------- 显示模式：全屏自适应 / 竖屏窗口可调 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 275] : /** 滚轮注入需要知道 Android 侧分辨率；缓存一次，转屏/重启运行时后失效 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 278] : try { deviceSize.value = await runtime.client().wmSize(); } catch (_) { /* 运行时还没起来 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 291] : /** 设置页改动鼠标键位后，立刻按当前窗口焦点同步一次钩子配置 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 298] : * 旋转 = 换物理面板尺寸并重启模拟器。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 300] : * 这是唯一能得到「正立 + 铺满」横屏的方式（三种错路都踩过）：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 301] : *   - wm size：只改逻辑分辨率，物理 LCD 仍是竖的 -> 画面躺倒 90°、只占左上角一条；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 302] : *   - wm density：framebuffer 尺寸不变 -> 画面不铺满，最大化后右侧一大片空白；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 303] : *   - adb emu rotate：只转画面内容，系统里还是竖屏。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 304] : * 只有把 hw.lcd.width/height 换成横屏并重启，Qt 才会按横屏面板开窗口、画面正立铺满。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 310] : send('runtime:log', landscape ? '切换到横屏：正在重启安卓运行时…' : '切换回竖屏：正在重启安卓运行时…');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 312] : // 先把嵌入窗口摘下来，避免重启过程中在桌面留下黑窗
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 321] : // reloadApp=false：调用方（runLaunch）自己会把应用拉起来，这里别抢着做一遍
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 332] : // 返回新的 rt：beforeStart 拿到后会替换掉旧的（旧 client 已随 stop 失效）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 341] : * 把安卓画面接到用户眼前。两种模式：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 342] : *   - 嵌入（默认）：SetParent 进我们自己的窗口，观感统一；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 343] : *   - 独立窗口：让模拟器开原生窗口，绕开嵌入固有的一整串问题
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 344] : *     （黑边、坐标错位、铺不满、Qt 面板方向打架）。由设置 display.windowEmbed 控制。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 348] : // 有些底座自己没有可嵌的画面窗口（典型：FydeOS —— 画面在它自己的桌面里，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 349] : // 或者在那台虚拟机的窗口里，不是某个安卓应用的 HWND）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 350] : // 这种情况不要走嵌入/独立窗口那一套，否则会兜一圈 SetParent 失败、
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 351] : // 日志里刷「attach failed」，用户还以为坏了。直接认作「画面已由底座自己显示」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 354] : appLog(`${be.label} 自己管理画面窗口，跳过接管`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 359] : // 独立窗口不需要标题栏里那块区域了，直接让模拟器窗口自己露出来
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 370] : /** 打开（或复用）那个「一个应用一个干净窗口」 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 379] : // 横屏时窗口按横比例开，否则竖窗口里塞横画面会留出大片黑边
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 381] : // 全屏有两种来路：显式选了「全屏」模式，或者勾了「启动时自动全屏」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 382] : // 后者以前是个死开关（只在默认设置里声明，没有任何代码读它），这里补上。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 388] : // 打开时按已保存的方向初始化（物理面板方向在 doctor.lcdFor 里决定）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 390] : tip: tip || '正在启动安卓运行时…',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 406] : // 全屏 = 横屏：改物理面板并重启运行时，否则只是把竖画面拉大、右侧一大片空
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 414] : /** 首次运行把 adb / emulator / 系统镜像一次装完，不再分 1~5 步 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 423] : // 轻量版优先用「本项目 GitHub 的运行时整包」：一个文件搞定 emulator + 系统镜像，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 424] : // 下载源和更新源统一在 GitHub 上（国内比 dl.google.com 稳得多）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 425] : // 整包拿不到（没网 / 还没发过该资产 / 被限流）再逐个从官方源装。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 428] : progress({ message: '正在从 GitHub 下载运行时…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 432] : progress({ message: '运行时整包不完整，改用官方源补齐…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 434] : progress({ message: `GitHub 运行时不可用（${e.message}），改用官方源…` });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 438] : progress({ message: '正在准备 adb…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 442] : progress({ message: '正在准备 Android 运行时…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 446] : progress({ message: '正在准备 Android 系统镜像…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 465] : /** 递归复制目录内容（best-effort，不删源；用于共享目录改路径时一次性搬迁旧文件） */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 475] : } catch (_) { /* 单文件失败不影响其余 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 479] : /** 以管理员权限启用一个 Windows 可选功能（如 VirtualMachinePlatform / HypervisorPlatform） */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 489] : proc.on('error', () => resolve({ ok: false, error: '无法启动 PowerShell' }));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 493] : // ---------------- 主窗口 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 519] : // 冒烟测试时把渲染进程的报错打到 stdout：界面空白、按钮点了没反应，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 520] : // 十有八九是 app.js 里某个 id 改动后抛了异常，正常运行看不到。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 527] : // 外链一律交给系统浏览器（公众号/GitHub 等），绝不把应用窗口导航走
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 542] : notify('ApkStart 仍在后台运行', '点击托盘图标可重新打开；右键托盘可退出。');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 568] : // ---------------- 托盘 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 579] : // 独立窗口模式主界面是隐藏的，托盘就成了唯一随时可达的入口 ——
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 580] : // 「关闭当前应用」必须放这里，否则用户根本没法关掉正在跑的应用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 581] : // 判断「有没有应用在跑」要同时看 currentAppPkg 和 runtime.activeApps：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 582] : // endApp 会从 activeApps 里删掉包名，所以关掉后这里自动变 false。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 583] : // 但 currentAppPkg 可能还指着上一个应用（endApp 不清它），所以要双重判断。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 591] : { label: '打开 ApkStart', click: () => showWindow() },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 595] : : [{ label: '还没有安装应用', enabled: false }]),
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 598] : label: hasRunning ? `关闭当前应用（${runningLabel}）` : '关闭当前应用',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 603] : // 复用 app:stop 的同一条路径，不在两处写同样的逻辑
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 608] : label: displaySettings().landscape ? '切回竖屏（需重启运行时）' : '切换横屏（需重启运行时）',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 613] : label: displaySettings().mode === 'fullscreen' ? '切回竖屏窗口' : '全屏（自适应屏幕）',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 616] : { label: '重建桌面/开始菜单快捷方式', click: () => { installer.ensureShortcuts().catch(() => {}); } },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 617] : { label: '同步共享目录', click: () => sharer.sync() },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 618] : { label: '设置', click: () => { showWindow(); send('ui:navigate', 'settings'); } },
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 620] : label: updateInfo && updateInfo.hasUpdate ? `发现新版本 ${updateInfo.tag}` : '检查更新',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 629] : title: '发现新版本',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 630] : message: `ApkStart ${info.tag} 已发布，当前版本 v${app.getVersion()}。现在更新吗？`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 632] : buttons: ['立即更新', '稍后'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 638] : notify('已是最新版本', `ApkStart v${app.getVersion()}`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 644] : label: '退出',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 654] : tray.setToolTip('ApkStart — 安卓应用运行器');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 655] : // Windows 托盘的惯例是单击就打开主窗口（双击当然也可以）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 656] : // 之前只绑了 double-click，用户单击没反应，会以为托盘图标坏了。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 657] : // 右键才出菜单，所以这里单击直接 showWindow 不会和菜单冲突。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 664] : // ---------------- 核心动作 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 666] : let installBusy = null;   // 正在安装的文件路径：双击 APK 连点会走 second-instance，不能并发装
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 671] : // 同一个包正在装（用户连点了几次图标 / 拖了好几次）→ 只提示一次，别重复跑一遍安装
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 674] : send('toast', { type: 'info', message: '这个 APK 正在安装中，请稍等…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 675] : return { ok: false, error: '正在安装中' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 677] : send('toast', { type: 'info', message: '已有安装任务在进行，请等它装完。' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 678] : return { ok: false, error: '已有安装任务在进行' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 685] : // 新建的桌面图标要让资源管理器立刻刷新，否则用户会以为「没创建快捷方式」
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 687] : notify('安装完成', `${result.app.label} 已安装${result.app.shortcutPath ? '，桌面快捷方式已创建' : ''}`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 692] : // 同一条错误 8 秒内只弹一次系统通知：连续重试时不会在右下角刷屏
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 696] : // 窗口在前台时用户已经看到界面里的提示，不必再弹系统通知
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 698] : notify('安装失败', e.message.slice(0, 120));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 708] : * 下载并安装新版本，然后由 update-apply 脚本接管「替换 + 重启」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 709] : * 界面与托盘菜单共用这一条路径。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 712] : if (updateBusy) return { ok: false, error: '正在更新中' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 718] : if (!info.hasUpdate) return { ok: false, error: '已经是最新版本' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 721] : return { ok: false, error: '该版本没有可直接安装的包，已打开 GitHub 发布页', manual: true };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 723] : sendProgress({ stage: 'download', percent: 0, message: '准备下载…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 725] : sendProgress({ stage: 'apply', percent: 100, message: '正在替换程序并重启…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 727] : // 给界面一点时间显示「即将重启」，然后走正常退出流程（before-quit 会把模拟器窗口藏好）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 741] : // 「提前接画面」的状态：进程一出现就接，但最终成败要等回调回来才知道。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 742] : // 放在函数作用域，供后面的最终判定使用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 747] : // 1) 先把「应用窗口」打开显示启动动画：整个过程看不到安卓桌面，也看不到模拟器窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 748] : openAppWindow(pkg, '正在启动安卓运行时…');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 749] : // 开机阶段把模拟器主窗 + qemu / netsimd 的控制台黑窗藏起来，避免任何闪现。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 750] : // 压制是常驻的（embed 后它会自动跳过被嵌入的那一个窗口，见 appwin.embed）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 751] : // 这里必须 await：不等压制生效就往下走，黑窗会在启动瞬间露出来。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 758] : // 应用进程一出现就把画面接上去，不等后面那 4 秒的「确认不会崩」观察期。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 759] : // 那 4 秒对稳定性有意义，但用户看到的是「点了没反应」；先让他看到应用在加载，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 760] : // 观感差别很大（实测点开到出画面 7.2s → 约 3s）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 761] : // 这里故意不 await：接画面和存活判定并行，谁先完成都不影响另一边。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 764] : mark('app up (提前接画面)');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 769] : // 启动前先把面板方向校正到设置要求的那个。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 770] : // 横屏只能靠物理面板（hw.lcd.width/height 互换）+ 重启实现，而这一项是在
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 771] : // 开机时写进 config.ini 的。如果用户改了「横屏」设置、但虚拟机还以竖屏面板
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 772] : // 跑着（预热的场景很常见），光靠 wm size / wm user-rotation 只会让画面躺倒。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 773] : // 所以这里发现不一致就先重启一次，reloadApp=false 让下面照常启动应用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 782] : mark(`orientation mismatch (panel=${cur ? 'landscape' : 'portrait'}, want=${wantLand}) 重启校正`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 783] : appWin.setState({ tip: wantLand ? '正在切换到横屏…' : '正在切换到竖屏…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 784] : // restartForOrientation 重启运行时后返回新的 rt（旧 client 已失效）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 785] : // 把它返回给 installer.launch，后续的 resetDisplayOverrides / startApp
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 786] : // 都用新 client，否则全部静默失败（catch 吞掉，应用起不来画面）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 791] : appWin.setState({ tip: '正在打开应用…' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 792] : // 沉浸式 + 关动画 + 收起锁屏：只做一次，之后每次启动都秒进
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 795] : // 没有重启就返回 null（installer 用原来的 rt）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 801] : // 1.5) 第三方底座的就绪门禁：等画面窗口真正出现在桌面上再嵌。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 802] : //      自带的 emulator 窗口是自己创建的，嵌完由代理负责显示；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 803] : //      而 MuMu 这类窗口不是我们创建的 —— 在它还隐藏时 SetParent，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 804] : //      Windows 会隐式清掉 WS_VISIBLE，之后它永远不会自己再显示（宿主里全黑）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 806] : // 不能嵌窗口的底座（FydeOS）没有「等画面窗口出现」这回事，直接跳过这个门禁
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 814] : // 拿不到窗口也别把应用窗口晾着：给用户一句能看懂的话
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 815] : appWin.setState({ tip: `等待 ${backend.label} 的画面窗口…` });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 820] : // 2) 应用真的活下来了，才把画面接到用户眼前（否则用户会看到闪一下的桌面/崩溃页）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 821] : // 但如果 onAppUp 已经把画面接上了（提前接管），这里只做一次「确认」，不重复接 ——
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 822] : // 重复接在独立窗口模式下会把刚摆好的窗口再隐藏/显示一遍，画面会闪。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 830] : // 日志措辞要分清两种模式：独立窗口模式下 embedded=true 的意思是
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 831] : // 「画面已经接到用户眼前（在模拟器原生窗口里）」，而不是「嵌进我们的窗口」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 832] : // 否则看日志的人会以为设置没生效。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 836] : // 嵌入完成后把窗口从别的窗口底下抬出来。否则上层窗口（浏览器等）会盖住安卓画面，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 837] : // 用户看到的是「黑屏 / 画面没填满」，鼠标也点不到应用（全被上层窗口吃掉）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 838] : // 短暂 topmost 再立刻撤销，只借用一次置顶把 Z 序抬到最前，不会长期霸占顶层。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 839] : // 独立窗口模式跳过：那时画面在模拟器自己的窗口里，把空壳窗口显示出来只会挡住它。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 849] : try { appWin.win.setAlwaysOnTop(false); } catch (_) { /* 窗口已关 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 852] : } catch (_) { /* 窗口可能刚关闭 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 855] : // 容器会话：环境已经就绪，这里只做「按应用裁剪 + 打开后台轮询」，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 856] : // 不再为这个 App 重新引导一遍 Android。鼠标键位钩子由窗口 focus 事件
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 857] : // 按设置决定，失焦即卸载。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 861] : // 游戏/低延迟模式：让窗口代理降频扫描，减少全桌面 EnumWindows 造成的整机卡顿
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 872] : // 启动失败也把模拟器窗口继续压住（不要让它以「独立的模拟器窗口」形式露出来），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 873] : // 下次点应用还是走同一条隐藏 → embed 的路径。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 876] : send('toast', { type: 'error', message: `启动失败：${e.message}` });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 882] : * 容器有/无应用窗口时的后台任务开关。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 883] : * 文件同步每 8 秒要遍历共享目录并走一次 adb find/stat，通知桥也在轮询；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 884] : * 以前从 ApkStart 一启动就无条件开跑，哪怕一个 Android 应用都没打开。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 885] : * 现在只在容器里真的有应用时才开，关掉最后一个窗口立刻停。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 898] : * 关掉一个正在运行的安卓应用 —— 托盘菜单和右键菜单共用这一条路径。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 900] : * 做了三件事：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 901] : *  1. forceStop 应用进程（endApp 的停放逻辑也在这步之后）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 902] : *  2. 收掉画面：嵌入模式关壳窗口；独立模式先把模拟器窗口藏了再关壳
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 903] : *     （顺序很重要：先销毁壳窗口会让模拟器窗口在桌面闪一下再被 park）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 904] : *  3. 清 currentAppPkg，让托盘菜单的「关闭当前应用」立刻变灰
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 906] : * @param {string} pkg 要关闭的应用包名
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 907] : * @param {object} [opts] { keepWindow } keepWindow=true 时不收窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 912] : if (!target) return { ok: false, error: '没有正在运行的应用' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 919] : // 独立窗口模式：先把模拟器窗口藏掉，再关壳窗口。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 920] : // 反过来会在桌面留下一个闪了闪又消失的模拟器窗口。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 929] : // 清掉当前应用标记：托盘菜单、右键菜单的「关闭应用」都据此变灰
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 940] : /** 通知桥：只在有应用窗口时轮询，关掉窗口就停，避免空转 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 974] : // 启动方式（开机自启 / 双击打开）：欢迎卡据此决定是否自动弹出
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 986] : // 选文件夹（用于把运行时/镜像/已装应用挪到非系统盘）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 989] : title: '选择数据存放目录',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1004] : } catch (_) { /* 运行时未启动时忽略 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1019] : title: '选择要安装的 APK',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1020] : filters: [{ name: 'Android 应用', extensions: ['apk', 'apks', 'xapk'] }],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1037] : * 关掉一个正在运行的安卓应用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1039] : * 以前根本没有这个入口：endApp 只在「应用窗口被关闭」时触发，而独立窗口模式下
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1040] : * 那个窗口是隐藏的、永远不会被关，所以应用一旦起来就关不掉，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1041] : * 用户只能退到托盘退出整个 ApkStart（连虚拟机一起没了）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1052] : if (!appRecord) throw new Error('应用不存在');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1085] : // 竖屏基准尺寸变了：只影响后续打开的窗口大小，不打断正在跑的应用
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1088] : // 打开「开始菜单快捷方式」时立刻补齐，不用等下次安装
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1092] : // 鼠标键位变了：立刻按当前焦点重装/卸载钩子，不用等下次切窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1098] : // 换了更新源 / 镜像前缀 / 整包地址：之前那套「谁最快」的结论不再成立，清掉测速缓存；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1099] : // 运行时整包 / 引擎 / 镜像的地址还缓存在 provisioner._cache 里，不清掉就要重启进程才生效。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1111] : // 换了底座：旧后端的连接 / 端口假设全部作废，正在跑的应用窗口也要收起。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1112] : // 不处置的话，新底座会用上一个后端的 serial 去 adb，表现成「点开应用没反应」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1118] : send('runtime:log', `已切换运行时底座：${runtime.backend.label}`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1124] : /** 底座清单 + 本机探测结果（设置页「引擎模式」用） */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1142] : * 修改本机共享目录：把旧目录里已有的文件一次性迁到新目录（best-effort，不删旧文件），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1143] : * 再保存设置。Sharer 每次同步都动态读 store.getSettings().sharedDir，无需重启即可生效。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1146] : if (!dir || !dir.trim()) return { ok: false, error: '目录不能为空' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1159] : // ---------------- 显示模式 / 快捷方式 / 一键部署 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1174] : // 全屏 = 平板横屏排版（见 toggleDisplayMode 的说明）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1185] : // 关闭「深度裁剪」时把被 pm disable-user 的系统包恢复回来
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1187] : // 鼠标键位改变：只同步配置，不再无条件卸载（右键返回/滚轮可能仍需要钩子）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1189] : // 兼容旧界面：语义已改为「按设置重新同步」
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1204] : // ---------------- 诊断 / 瘦身 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1208] : // 已经开机就用实跑参数；没开机也要按「真实引擎版本 + 真实加速状态」推导，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1209] : // 否则设置页会显示已弃用的 swiftshader_indirect / 软件模拟，和实跑不一致。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1230] : * 系统问题自动校验：启动前/运行中自动检查常见导致「装不上、起不来」的根因，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1231] : * 并给出可操作的修复建议（在首页横幅 + 设置面板里展示，按问题一键修复）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1236] : // 这两个值在 try 内赋值、在 try 外返回，必须在作用域外声明
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1242] : code: 'vcRedist', severity: 'error', title: '缺少 VC++ 运行库（x64）',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1243] : hint: '安卓运行时依赖微软 VC++ 2015-2022，缺失会导致模拟器无法启动（0xc0000135）。', fix: 'vcRedist',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1249] : code: 'accel', severity: 'warn', title: '未启用硬件加速',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1250] : hint: (accel.note || '将回退软件模拟（能跑但很慢）。开启虚拟化后可获得最佳性能。'), fix: 'virtualization',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1256] : code: 'disk', severity: free < 2048 ? 'error' : 'warn', title: '运行时磁盘空间紧张',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1257] : hint: `「${runtime.provisioner.paths().root}」所在盘仅剩 ${free} MB，运行时与镜像可能撑爆硬盘。`, fix: 'disk',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1263] : code: 'pathRuntime', severity: 'warn', title: '运行时目录含中文/特殊字符',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1264] : hint: '部分运行时组件对中文路径敏感，可能引发启动失败。建议改到纯英文目录。', fix: 'path',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1269] : issues.push({ code: 'adb', severity: 'error', title: 'adb 工具链缺失', hint: '无法连接安卓运行时。', fix: 'deploy' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1272] : issues.push({ code: 'emulator', severity: 'error', title: '运行时引擎未安装', hint: '需要先部署运行时引擎（约 440MB）。', fix: 'deploy' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1275] : issues.push({ code: 'sysimg', severity: 'warn', title: '系统镜像未就绪', hint: '需要先下载 Android 系统镜像（约 1.5GB）。', fix: 'deploy' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1277] : // 残留锁文件：会让下一次启动被判定为「AVD 已被占用」而 FATAL
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1282] : issues.push({ code: 'lock', severity: 'warn', title: '检测到上次残留的锁文件', hint: '可能导致下一次启动被判定为「AVD 已被占用」。', fix: 'lock' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1284] : } catch (_) { /* 自检失败不阻断使用 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1288] : // 微软 VC++ 2015-2022 x64 运行库：安卓模拟器（Qt6）与 qemu 都依赖它。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1289] : // 缺了在「其他电脑」上会直接起不来（0xc0000135 / MSVCP140 缺失）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1307] : // 用 RunAs 提权安装（VC++ 是系统级组件，需要管理员）；/quiet 静默 /norestart 不重启
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1320] : // 通用确认框（渲染层统一走这里，避免各处自己拼 dialog 文案）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1324] : title: opts.title || '确认',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1327] : buttons: ['取消', opts.okLabel || '确定'],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1335] : // 数据分区（/data）容量：应用、游戏与它们的更新包都装在这里。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1336] : // 「游戏更新提示空间不足」几乎都是这一项太小，扩容是就地做的，不丢数据。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1351] : // 镜像正被 qemu 占着时不能改，先停容器（应用会跟着退出，属于预期）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1363] : if (r && r.ok) notify('数据分区已调整', `安卓可用空间约 ${want} GB${stopped ? '（运行时已重启）' : ''}`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1371] : // 明确两次确认：先给清单，用户确认后才真正删；且只清理 ApkStart 自己的运行时目录
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1377] : buttons: ['取消', `清理 ${preview.candidates.length} 项`],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1380] : title: '确认清理运行时缓存',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1381] : message: `将释放约 ${(preview.candidates.reduce((n, c) => n + c.size, 0) / 1048576).toFixed(0)} MB`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1383] : ? '会先停止运行时，再删除旧镜像、当前 AVD 的快速启动快照、锁文件和非活动 AVD 的缓存。已安装的应用本身保留（只清快照），'
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1384] : : '只删除旧镜像、旧快照、锁文件和非活动 AVD 的缓存，已安装的应用会保留。')
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1385] : + '此操作不可撤销，建议先导出诊断报告。',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1391] : // 彻底重置安卓数据：清空 /data 用户分区 + 已装应用 + 快速启动快照，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1392] : // AVD 还原成「刚装好系统」的干净状态。会真实删除数 GB 数据，UI 必须二次确认。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1403] : // 修复虚拟机网络：重置 /data（保留应用清单，点开应用会自动重装）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1404] : // 典型场景：安卓里所有联网页面一直黑屏，其实是 wlan0 没起来、没有默认路由。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1416] : // 只做网络体检，不动任何数据（设置页用来显示当前状态）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1426] : // ---------------- 旧版本残留 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1428] : /** 只扫描、不删除：先把「能找到什么」原样给界面，由用户决定 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1452] : // ---------------- 运行时自举 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1498] : /** 提权安装 AEHD 驱动：弹出 UAC，用户确认后静默安装 */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1507] : if (!fs.existsSync(bat)) throw new Error(r.error || 'AEHD 驱动包未就绪');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1518] : code === 2 ? '已取消管理员授权（需要点「是」才能安装驱动）' : `驱动安装失败（退出码 ${code}）`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1531] : * 自动开启虚拟化：用户无需手动去「Windows 功能」面板。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1532] : * 优先启用系统自带的「虚拟机平台」（WHPX）功能；若该 DLL 都不存在（老系统），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1533] : * 退而安装并启用 Google 的 AEHD 驱动。两种方式都需要管理员提权。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1538] : if (accel.ok) return { ok: true, already: true, accel, note: '硬件加速已可用，无需额外操作' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1542] : // 系统带 WinHvPlatform.dll：开启「虚拟机平台」功能（可能需要重启）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1552] : ? (r.restart ? '已开启「虚拟机平台」，请重启电脑后获得最佳性能' : '「虚拟机平台」已开启，硬件加速即时生效')
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1553] : : (r.error || r2.error || '无法开启系统虚拟化功能'),
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1557] : // 没有 WHPX 组件：改用 AEHD 驱动（Google 自家，装完即用）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1561] : if (!ae.ok) return { ok: false, error: ae.error || 'AEHD 驱动包准备失败' };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1569] : code === 2 ? '已取消管理员授权（需要点「是」才能安装驱动）' : `驱动安装失败（退出码 ${code}）`,
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1574] : return { ok: after.ok, accel: after, note: after.ok ? 'AEHD 硬件加速已启用' : after.note };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1619] : title: '选择 Android-x86 / Bliss OS 系统镜像',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1620] : filters: [{ name: '系统镜像', extensions: ['iso', 'img'] }],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1633] : title: '选择已安装 Android 的虚拟磁盘',
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1634] : filters: [{ name: '虚拟磁盘', extensions: ['qcow2', 'img', 'vmdk', 'raw'] }],
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1670] : // 冒烟/无 shell 环境：不探测注册表（reg.exe 可能被策略拦截）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1685] : // 优先用随包分发的多尺寸品牌 ICO，缺失时从 Logo PNG 现算
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1705] : /** 清理上次残留的 AVD 锁文件：会让下次启动被误判为「AVD 已被占用」而 FATAL */
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1722] : * 一键卸载 ApkStart 本体：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1723] : * 1) 先取消 .apk 文件关联（避免卸载后双击 APK 指向已删除的程序）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1724] : * 2) 安装版：启动 NSIS 卸载程序（它会自行请求管理员/确认），随后退出本程序
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1725] : * 3) 便携版（旁加载 / 免安装）：没有 uninstaller.exe，返回提示让用户手动删除程序与数据目录
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1729] : try { await assoc.unregisterAssociation(); } catch (_) { /* 取消关联失败不影响卸载 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1736] : // 卸载前先收掉常驻的模拟器：qemu 会锁住 resources\runtime 里的 exe/dll，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1737] : // NSIS 删不掉就会留下半个安装目录。这里只针对「真的在卸载」，不影响日常退出。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1739] : // 先让本程序退出，再由一个独立进程延迟 2 秒拉起卸载器：
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1740] : // 运行中的 exe 会锁住安装目录里的文件，直接拉起卸载器容易删不干净。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1761] : // ---------------- 应用窗口（只有 旋转 / 最小化 / 最大化 / 关闭） ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1774] : // 关闭必须走 appWin.close()：它会先把模拟器窗口从宿主上摘下来、再停掉安卓应用。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1775] : // 老实现直接 win.close()，绕过了这段收尾 —— 窗口是没了，但安卓侧的进程还在跑，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1776] : // 就是用户说的「点关闭关不掉应用」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1785] : // ---------------- 安卓系统设置（不用进安卓桌面） ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1800] : default: return { ok: false, error: `未知设置项 ${key}` };
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1826] : // ---------------- 在线更新 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1830] : // 用户主动点「检查更新」→ 跳过缓存，必定重新问一次两个源
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1840] : // GitHub 和 Gitee 的发布页都允许直接打开：检查更新失败时界面就是靠这个
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1841] : // 让用户手动去下载，只放行 github.com 会把国内用户挡在门外。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1859] : // ---------------- 生命周期 ----------------
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1875] : // 启动即留一行痕迹：出问题时用户把 app.log 发过来就能看到版本与数据目录
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1884] : // Windows 搜索索引的是开始菜单里的 .lnk，只放桌面会「搜不到应用」；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1885] : // Linux（FydeOS）那边对应的是 freedesktop 的应用菜单目录。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1899] : // 让更新器能读到「只走 GitHub / 只走 Gitee / 自动选快」和镜像前缀设置
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1904] : // 滚轮合并器：一个时间窗内的滚动只注入一条 input swipe，走常驻 adb shell。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1910] : // 窗口代理：只负责内嵌模拟器窗口。全局鼠标钩子只在应用窗口前台时按配置安装。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1914] : // 旋转要改 Android 的逻辑分辨率，交给 adb 客户端做
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1919] : // 传 getter：设置页改了键位，下一次窗口 focus / 刷新就生效，不用重启
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1921] : // 底座决定「画面窗口从哪来」：自带底座返回 null（窗口代理自己按进程作用域找），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1922] : // MuMu 这类第三方底座每次都现取句柄（句柄会在设备进程重启后失效）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1932] : // 关窗口 = 停这个应用；最后一个窗口关掉时容器停放（降优先级、停轮询），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1933] : // 但 Android 环境留着，下次点开是秒进而非重新冷启动。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1935] : // 外部关闭（Alt+F4 / 任务栏关闭）也要清当前应用标记，否则托盘菜单
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1936] : // 还显示「关闭当前应用（xxx）」但点了没反应（应用已经停了）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1941] : // 「哪些窗口才算我们的」= 运行时目录 + 随包的 engine 目录。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1942] : // 窗口代理只允许碰这些进程创建的窗口 —— 别的 Qt 应用（微信 4.x 就是 Qt6，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1943] : // 窗口类名和模拟器一模一样）一个都不许动，见 agent.ps1 的 SetScope。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1944] : // 第三方底座（MuMu 等）：把它的安装目录也加进来，这样开机阶段那个设备窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1945] : // 会被一起压住（只压 Qt 弹窗体/Chrome 工具条这类安全类名，见 HideStrayWindows）；
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1946] : // 它的画面窗口嵌进宿主后不受影响。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1957] : // 范围存在代理进程的内存里，代理一重建就没了 —— 所以每次开机压制前都重发一次。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1961] : // 第二个参数是本进程 pid：代理据此拒绝把窗口嵌进「不是我们的」窗口
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1963] : if (!dirs.length) appLog('agent scope 为空：不压制任何窗口（避免误伤其他软件）');
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1967] : // 代理进程意外退出后会重建，事件监听必须一起重新挂上（旧版会在这里丢掉
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1968] : // 右键返回与滚轮，表现是「用一会儿就没反应了」）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1980] : // 新代理没有范围信息，不补这一下它就什么窗口都不敢碰
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1986] : // 命令窗压制的「闸门」必须在模拟器进程创建之前打开。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1987] : // 旧实现是「等 ApkStart 起来 4 秒后再藏」，而模拟器在这之前就已经把
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1988] : // qemu 控制台窗口创建出来了 —— 用户看到的就是一次一闪而过的黑框。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1993] : // 窗口代理是个 PowerShell 常驻进程，冷启动约 300~600ms。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 1994] : // 提前拉起，别等到真正要藏窗口的那一刻才开始等。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2002] : // 磁盘余量：小于 3GB 时安卓根本起不来（写镜像/快照都会失败）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2003] : // 与其让用户看着「打不开」不明所以，不如开门见山告诉他往哪儿改。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2010] : notify('磁盘空间不足', `只剩 ${(freeMB / 1024).toFixed(1)} GB。请到「设置 → 系统集成」把安卓数据目录/运行时目录改到其他盘，或先清理磁盘。`);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2011] : send('toast', { type: 'error', message: `磁盘只剩 ${(freeMB / 1024).toFixed(1)} GB，安卓可能无法启动（设置 → 系统集成 可换盘）` });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2016] : // 老版本只建过桌面快捷方式 / 图标是 null：启动即自动补齐，不用用户操作
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2020] : notify('快捷方式已补齐', fixed.join('、'));
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2024] : // F11 全屏 / 窗口切换；全局快捷键只在 ApkStart 活着时有效
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2033] : // 预热：像 WSA / 应用宝电脑版那样把安卓环境常驻。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2034] : // 打开 ApkStart 时就在后台把它引导好（窗口全程隐藏），之后点应用只剩一次 am start。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2035] : // 只有「已经装过应用 + 有可用运行时」才预热，避免第一次使用/纯管理场景白占内存。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2038] : // 1.2 秒就够窗口画完第一帧了。以前等 4 秒，用户这时已经点了应用，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2039] : // 结果「点开」和「预热」抢同一个 AVD 锁，反而更慢。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2047] : // 开机阶段把模拟器窗口与 qemu 控制台藏起来，用户不该看到任何窗
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2048] : // 注意要 await：不等它生效就去 spawn，黑窗一定会露出来。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2056] : // 预热失败也继续压住模拟器窗口：它可能只是慢，过一会儿就起来了，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2057] : // 用户不该因为「预热失败」在桌面上看到一台模拟器。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2060] : } catch (e) { appLog(`prewarm error: ${e && e.message}`); /* 预热失败不影响后续正常打开 */ }
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2066] : // 首次运行的组件部署延后 20 秒：冷启动那段时间磁盘/CPU 已经打满，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2067] : // 再并发下载解压只会让桌面更卡。真有应用要打开时 ensure() 自会准备。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2070] : if (r && r.ok) send('toast', { type: 'ok', message: '运行时已自动准备完成' });
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2074] : // 启动 8 秒后静默查一次新版本（打包后才有意义）。发现新版本只提示，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2075] : // 绝不自动下载 —— 更新是用户点「立即更新」才做的事。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2083] : // 不再单独弹系统通知：启动时的提醒统一收到应用内的「欢迎卡」里，
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2084] : // 避免开机自启时又冒一个右下角气泡（用户反馈的「小弹窗」之一）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2090] : // 文件同步 / 通知轮询不再无条件常驻：只在容器里真的有应用窗口时才跑
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2091] : // （见 onContainerActive）。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2093] : // 冒烟测试：截图后退出，用于自动化验证界面是否正常渲染
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2100] : // 运行时面板已并入设置：--setup 与 --settings 等价，直接打开设置截图
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2124] : // 窗口可能被遮挡导致拿到旧帧：强制重绘 + 连拍两帧取后一帧
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2135] : // 拍一张「性能与资源占用」区（设置页里控件最多的一块）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2142] : // 拍一张「下载与更新源」区
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2149] : // 再拍一张「关于」区（二维码 / GitHub / Powered by）
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2156] : console.error('[smoke] 截图失败', e);
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2168] : // 正常关闭窗口时只隐藏到托盘（close 事件已拦截），
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2169] : // 走到这里说明是真正要退出，必须放行，否则进程会残留并占住单实例锁。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2176] : // 退出前必须先让窗口代理把模拟器窗口「摘下 + 藏好」。这一步是异步的
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2177] : // （要等代理回包），所以第一次 before-quit 先拦下来，收尾完成再真正退出。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2178] : // 少了这一步，宿主窗口一销毁，Windows 会把模拟器子窗口重挂到桌面并显示出来——
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2179] : // 表现就是「关掉 ApkStart 之后，桌面上还留着一个 Android Emulator 黑窗」。
+C:\Users\brand\Downloads\ApkStart-v0.5.0-fix-win64-portable\resources\app\src\main.js [Ligne 2190] : // 隐藏的图标解码窗口也算一个窗口，不关掉会让 window-all-closed 永远不触发
